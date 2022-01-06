@@ -1,0 +1,40 @@
+#alias volup="amixer -D pipewire sset Master 2.5%+ unmute"
+#alias voldown="amixer -D pipewire sset Master 2.5%- unmute"
+alias togglemute="amixer -D pipewire sset Master toggle"
+function voldown() {
+    if [ "$1" != "" ]
+    then
+        amixer -D pipewire sset Master $1%- unmute
+    else
+        amixer -D pipewire sset Master 5%- unmute
+    fi
+}
+
+function volup() {
+    if [ "$1" != "" ]
+    then
+        amixer -D pipewire sset Master $1%+ unmute
+    else
+        amixer -D pipewire sset Master 5%+ unmute
+    fi
+}
+
+function volset() {
+    if [ "$1" != "" ]
+    then
+        amixer -D pipewire sset Master $1% unmute
+    else
+        amixer -D pipewire sset Master 20% unmute
+    fi
+}
+
+alias volget=amixer -D pipewire
+
+alias handbrake=ghb
+alias lnBuild="ln -s /dev/shm/${workspaceFolder}/build"
+alias lnOut="ln -s /dev/shm/${workspaceFolder}/out"
+alias mpv="mpv --hwdec=auto --profile=gpu-hq --ytdl-format=\"bestvideo[height<=?1440]+bestaudio/best\""
+alias mpv-novp9="mpv --hwdec=auto --profile=gpu-hq --ytdl-format=\"bestvideo[height<=?1440][vcodec!=vp9]+bestaudio/best\""
+alias mpv-novp9-gui="mpv-novp9 -player-operation-mode=pseudo-gui"
+alias mpv-gui="mpv --player-operation-mode=pseudo-gui"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

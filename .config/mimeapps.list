@@ -1,0 +1,9 @@
+[Default Applications]
+x-scheme-handler/msteams=teams-insiders.desktop
+video/mp4=mpv.desktop
+application/pdf=okularApplication_pdf.desktop
+inode/directory=ranger.desktop
+text/plain=vim.desktop
+
+[Added Associations]
+video/mp4=mpv.desktop;
