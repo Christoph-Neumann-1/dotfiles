@@ -2,7 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH+=:$HOME/scripts
 PATH+=:$HOME/.local/bin
-alias code=code-insiders
+PATH+=:/opt/piavpn/bin
+PATH+=:/var/lib/flatpak/exports/bin
+#alias code=code-insiders
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PAPERSIZE=a4
@@ -115,3 +117,4 @@ fpath+=~/.zfunc
 eval $(thefuck --alias)
 eval $(thefuck --alias fix)
 source $HOME/.aliases
+set -o vi

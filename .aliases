@@ -38,3 +38,5 @@ alias mpv-novp9="mpv --hwdec=auto --profile=gpu-hq --ytdl-format=\"bestvideo[hei
 alias mpv-novp9-gui="mpv-novp9 -player-operation-mode=pseudo-gui"
 alias mpv-gui="mpv --player-operation-mode=pseudo-gui"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias launchXephyr="unset XDG_SEAT;Xephyr -br -ac -noreset -screen"
+alias p=paru
