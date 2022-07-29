@@ -3,13 +3,9 @@
 
 set -euo pipefail
 #I can remove the remaining error checking now
-
+printf "Checking if backups is a mountpoint\n"
 sudo mountpoint -q /backup
-
-if [ $? -ne 0 ]; then
-    printf "/backup is not a mount point."
-    exit 1
-fi
+printf "Success\n"
 
 DATE=$(date '+%Y-%m-%d-%H-%M')
 

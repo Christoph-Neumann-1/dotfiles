@@ -8,7 +8,7 @@ set -euo pipefail
 
 mkdir -p "$HOME"/gdrive-backup-unencrypted/{archives,data}
 
-rsync -ah --progress --delete "$HOME/Documents" "$HOME/gdrive-backup-unencrypted/data"
+rsync -ah --progress --delete "$HOME/Documents" "$HOME/gdrive-backup-unencrypted/data" --exclude="English/vlog/*" --exclude="node_modules"
 echo "Synchronized data"
 fullBackup=0
 if [ ! -f "$HOME/gdrive-backup-unencrypted/counter" ]; then
@@ -36,7 +36,7 @@ echo "Timestamp = $DATE"
 cd "$HOME/gdrive-backup-unencrypted"
 COUNTER=$(($(cat counter) + 1))
 echo "Creating archive and encrypting to myself"
-tar -cg incremental.snar -f - data | gpg -er 41BA008ED4859A28DFB838D0B94070CB29B3F0FB | pv >"archives/$DATE.$COUNTER.tar.xz.gpg"
+tar --xz -cg incremental.snar -f - data | gpg -er 41BA008ED4859A28DFB838D0B94070CB29B3F0FB | pv >"archives/$DATE.$COUNTER.tar.xz.gpg"
 
 echo "Incrementing counter"
 echo "$COUNTER" >counter

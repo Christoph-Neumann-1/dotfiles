@@ -31,8 +31,8 @@ function volset() {
 alias volget=amixer -D pipewire
 
 alias handbrake=ghb
-alias lnBuild="ln -s /dev/shm/${workspaceFolder}/build"
-alias lnOut="ln -s /dev/shm/${workspaceFolder}/out"
+alias lnBuild="ln -s /tmp$(pwd)/build"
+alias lnOut="ln -s /tmp$(pwd)/out"
 alias mpv="mpv --hwdec=auto --profile=gpu-hq --ytdl-format=\"bestvideo[height<=?1440]+bestaudio/best\""
 alias mpv-novp9="mpv --hwdec=auto --profile=gpu-hq --ytdl-format=\"bestvideo[height<=?1440][vcodec!=vp9]+bestaudio/best\""
 alias mpv-novp9-gui="mpv-novp9 -player-operation-mode=pseudo-gui"
@@ -40,3 +40,8 @@ alias mpv-gui="mpv --player-operation-mode=pseudo-gui"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias launchXephyr="unset XDG_SEAT;Xephyr -br -ac -noreset -screen"
 alias p=paru
+alias insta="instaloader -l=christoph__n"
+alias e=exa
+alias el="exa -l --git"
+alias labuild="latexmk -lualatex -output-directory=out -shell-escape"
+alias lashow="labuild&&okular out/*.pdf"  

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DESTINATION=gdrive
+SOURCE=Journal
+
+cd $HOME
+
+rm -rf $DESTINATION/$SOURCE
+fd --type=f --extension backup '.*' $SOURCE --exec rm "{}"
+# This somehow fails to save the People folder
+fd --type=f '.*' $SOURCE --exec sh -c "mkdir -p \"$DESTINATION/{//}\";gpg --symmetric --batch --yes --passphrase foo --output \"$DESTINATION/{}.gpg\" \"{}\""
+drive push "$DESTINATION/$SOURCE"
+#This needs to be made incremental

@@ -2,6 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH+=:$HOME/scripts
 PATH+=:$HOME/.local/bin
+PATH+=:$HOME/context
+PATH+=:/home/christoph/.local/share/gem/ruby/3.0.0/bin
 PATH+=:/opt/piavpn/bin
 PATH+=:/var/lib/flatpak/exports/bin
 #alias code=code-insiders
@@ -76,7 +78,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git adb command-not-found extract gpg-agent pip zsh-syntax-highlighting archlinux)
+plugins=(git adb docker docker-compose command-not-found extract gpg-agent pip zsh-syntax-highlighting archlinux)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -118,3 +120,4 @@ eval $(thefuck --alias)
 eval $(thefuck --alias fix)
 source $HOME/.aliases
 set -o vi
+fortune -o -s |cowsay|lolcat
